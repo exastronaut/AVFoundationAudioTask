@@ -15,9 +15,19 @@ final class ViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var playButtonLabel: UIButton!
 
+    // MARK: - Private
+
+    // MARK: Variables
+
+    private let songTitles = [
+        "Queen",
+        "Мышапер - Ведьмак школы огузка",
+        "Райан Гослинг",
+        "на твой телефон пришло",
+        "quiizzzmeow-Улитка"
+    ]
     private var player = AVAudioPlayer()
     private var counter = 0
-    private let music = MusicService().getSong()
 
     // MARK: - Override functions
 
@@ -75,10 +85,10 @@ final class ViewController: UIViewController {
 private extension ViewController {
 
     func setupMusicPalyer() {
-        guard let currentMusicURL = Bundle.main.url(forResource: music[counter], withExtension: Constants.extension)
+        guard let currentMusicURL = Bundle.main.url(forResource: songTitles[counter], withExtension: Constants.extension)
         else { return }
 
-        let currentMusicName = music[counter]
+        let currentMusicName = songTitles[counter]
 
         nameLabel.text = currentMusicName
 
@@ -102,14 +112,14 @@ private extension ViewController {
 
     func decreaseCounter(_ counter: inout Int) {
         if counter == 0 {
-            counter = music.count - 1
+            counter = songTitles.count - 1
         } else {
             counter -= 1
         }
     }
 
     func increaseCounter(_ counter: inout Int) {
-        if counter == music.count - 1 {
+        if counter == songTitles.count - 1 {
             counter = 0
         } else {
             counter += 1
