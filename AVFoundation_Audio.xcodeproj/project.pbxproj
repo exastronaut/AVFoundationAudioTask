@@ -11,9 +11,11 @@
 		15B5622725DE323700D5B871 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B5622625DE323700D5B871 /* SceneDelegate.swift */; };
 		15B5622925DE323700D5B871 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B5622825DE323700D5B871 /* ViewController.swift */; };
 		15B5622C25DE323700D5B871 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15B5622A25DE323700D5B871 /* Main.storyboard */; };
-		15B5622E25DE323900D5B871 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15B5622D25DE323900D5B871 /* Assets.xcassets */; };
-		15B5623125DE323900D5B871 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15B5622F25DE323900D5B871 /* LaunchScreen.storyboard */; };
 		15B5623B25DE403800D5B871 /* Queen.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 15B5623A25DE403800D5B871 /* Queen.mp3 */; };
+		C7D593E728E63E640061E079 /* Мышапер - Ведьмак школы огузка.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C7D593E628E63E640061E079 /* Мышапер - Ведьмак школы огузка.mp3 */; };
+		C7D593E928E6CABF0061E079 /* Райан Гослинг.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C7D593E828E6CABF0061E079 /* Райан Гослинг.mp3 */; };
+		C7D593EB28E6CB770061E079 /* на твой телефон пришло.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C7D593EA28E6CB770061E079 /* на твой телефон пришло.mp3 */; };
+		C7D593ED28E6CC1C0061E079 /* quiizzzmeow-Улитка.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C7D593EC28E6CC1C0061E079 /* quiizzzmeow-Улитка.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,10 @@
 		15B5623025DE323900D5B871 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		15B5623225DE323900D5B871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		15B5623A25DE403800D5B871 /* Queen.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Queen.mp3; sourceTree = "<group>"; };
+		C7D593E628E63E640061E079 /* Мышапер - Ведьмак школы огузка.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Мышапер - Ведьмак школы огузка.mp3"; sourceTree = "<group>"; };
+		C7D593E828E6CABF0061E079 /* Райан Гослинг.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Райан Гослинг.mp3"; sourceTree = "<group>"; };
+		C7D593EA28E6CB770061E079 /* на твой телефон пришло.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "на твой телефон пришло.mp3"; sourceTree = "<group>"; };
+		C7D593EC28E6CC1C0061E079 /* quiizzzmeow-Улитка.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "quiizzzmeow-Улитка.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +80,10 @@
 			isa = PBXGroup;
 			children = (
 				15B5623A25DE403800D5B871 /* Queen.mp3 */,
+				C7D593E628E63E640061E079 /* Мышапер - Ведьмак школы огузка.mp3 */,
+				C7D593E828E6CABF0061E079 /* Райан Гослинг.mp3 */,
+				C7D593EA28E6CB770061E079 /* на твой телефон пришло.mp3 */,
+				C7D593EC28E6CC1C0061E079 /* quiizzzmeow-Улитка.mp3 */,
 			);
 			path = Music;
 			sourceTree = "<group>";
@@ -135,8 +145,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				15B5623125DE323900D5B871 /* LaunchScreen.storyboard in Resources */,
-				15B5622E25DE323900D5B871 /* Assets.xcassets in Resources */,
+				C7D593E728E63E640061E079 /* Мышапер - Ведьмак школы огузка.mp3 in Resources */,
+				C7D593ED28E6CC1C0061E079 /* quiizzzmeow-Улитка.mp3 in Resources */,
+				C7D593E928E6CABF0061E079 /* Райан Гослинг.mp3 in Resources */,
+				C7D593EB28E6CB770061E079 /* на твой телефон пришло.mp3 in Resources */,
 				15B5623B25DE403800D5B871 /* Queen.mp3 in Resources */,
 				15B5622C25DE323700D5B871 /* Main.storyboard in Resources */,
 			);

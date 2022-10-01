@@ -8,35 +8,134 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
+
+    // MARK: - IBOutlets
     
-    var Player = AVAudioPlayer()
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var playButtonLabel: UIButton!
+
+    // MARK: - Private
+
+    // MARK: Variables
+
+    private let songTitles = [
+        "Queen",
+        "Мышапер - Ведьмак школы огузка",
+        "Райан Гослинг",
+        "на твой телефон пришло",
+        "quiizzzmeow-Улитка"
+    ]
+    private var player = AVAudioPlayer()
+    private var counter = 0
+
+    // MARK: - Override functions
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
-        do {
-            Player = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "Queen", ofType: "mp3")!))
-            Player.prepareToPlay()
-        }
-        catch {
-            print(error)
-        }
-        
-        
+
+        setupMusicPalyer()
     }
 
-    @IBAction func PlayButton(_ sender: Any) {
-        Player.play()
+    // MARK: - IBAction
+
+    @IBAction func nextButton(_ sender: Any) {
+        increaseCounter(&counter)
+        setupMusicPalyer()
+        player.play()
+        
+        if player.isPlaying {
+            playButtonLabel.setImage(UIImage(systemName: Constants.pause), for: .normal)
+        }
+    }
+
+    @IBAction func backButton(_ sender: Any) {
+        decreaseCounter(&counter)
+        setupMusicPalyer()
+        player.play()
+
+        if player.isPlaying {
+            playButtonLabel.setImage(UIImage(systemName: Constants.pause), for: .normal)
+        }
+    }
+
+    @IBAction func playButton(_ sender: Any) {
+
+        if player.isPlaying {
+            player.pause()
+            playButtonLabel.setImage(UIImage(systemName: Constants.play), for: .normal)
+        } else {
+            player.play()
+            playButtonLabel.setImage(UIImage(systemName: Constants.pause), for: .normal)
+        }
+
     }
     
-    @IBAction func StopButton(_ sender: Any) {
-        if Player.isPlaying {
-            Player.stop()
-        }
-        else {
-            print("Already stopped!")
+    @IBAction func stopButton(_ sender: Any) {
+        if player.isPlaying {
+            player.stop()
+            player.currentTime = 0
+            playButtonLabel.setImage(UIImage(systemName: Constants.play), for: .normal)
         }
     }
+}
+
+// MARK: - Private functions
+
+private extension ViewController {
+
+    func setupMusicPalyer() {
+        guard let currentMusicURL = Bundle.main.url(forResource: songTitles[counter], withExtension: Constants.extension)
+        else { return }
+
+        let currentMusicName = songTitles[counter]
+
+        nameLabel.text = currentMusicName
+
+        do {
+            player = try AVAudioPlayer(contentsOf: currentMusicURL)
+            setupAudioSession()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+
+    func setupAudioSession() {
+        let audioSession = AVAudioSession.sharedInstance()
+
+        do {
+            try audioSession.setCategory(.playback)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+
+    func decreaseCounter(_ counter: inout Int) {
+        if counter == 0 {
+            counter = songTitles.count - 1
+        } else {
+            counter -= 1
+        }
+    }
+
+    func increaseCounter(_ counter: inout Int) {
+        if counter == songTitles.count - 1 {
+            counter = 0
+        } else {
+            counter += 1
+        }
+    }
+
+}
+
+// MARK: - Private functions
+
+private extension ViewController {
+
+    enum Constants {
+        static let `extension` = "mp3"
+        static let play = "play.fill"
+        static let pause = "pause.fill"
+    }
+
 }
